@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candwan Consultancy - Architectural and Quantity Surveying Services</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 8vh;
+            background: transparent;
+        }
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 45px;        /* Adjust for your logo size */
+    height: 45px;
+    object-fit: cover;
+    border-radius: 50%; /* Optional: makes logo round */
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #DAA520;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+     /* HERO SECTION */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  margin-top: 8vh;
+}
+
+/* Background slideshow with blur and dim effect */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  animation: slideImages 9s infinite; /* 3 images × 3s each = 9s loop */
+  z-index: -2;
+  filter: brightness(55%) blur(3px); /* 💡 Darken + blur background */
+}
+
+/* Optional overlay for extra dim effect */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2); /* Semi-transparent overlay */
+  z-index: -1;
+}
+
+/* Background images loop */
+@keyframes slideImages {
+  0%   { background-image: url('https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); }
+  33%  { background-image: url('https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); }
+  66%  { background-image: url('https://images.pexels.com/photos/417273/pexels-photo-417273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); }
+  100% { background-image: url('https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); }
+}
+
+/* HERO CONTENT */
+.hero .container {
+  position: relative;
+  max-width: 800px;
+  animation: fadeInUp 1.2s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 80%;
+  padding-top: 80px;
+  padding-bottom: 40px;
+}
+
+/* HEADINGS & TEXT */
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.hero blockquote {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  line-height: 1.5;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin-bottom: auto; /* Keeps paragraph above the button */
+  line-height: 1.6;
+}
+
+/* BUTTON STYLING */
+.btn {
+  display: inline-block;
+  background: #fff;
+  color: #DAA520;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  align-self: center;
+  margin-top: auto; /* Pushes button toward the bottom */
+}
+
+.btn:hover {
+  background: #e9ecef;
+  transform: scale(1.05);
+}
+
+/* TEXT ANIMATION */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero blockquote,
+  .hero p {
+    font-size: 1rem;
+  }
+  .btn {
+    padding: 10px 25px;
+  }
+}
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #DAA520;
+        }
+        .about {
+            background: #fff;
+            position: relative;
+        }
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.pexels.com/photos/53610/blueprint-design-architecture-drawing-53610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center/cover;
+            opacity: 0.05;
+            z-index: -1;
+        }
+        .about p {
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .mission-vision div {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .mission-vision div::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #DAA520, #fff);
+        }
+        .mission-vision h3 {
+            color: #DAA520;
+            margin-bottom: 1rem;
+        }
+
+        /* Services Sections */
+        .services {
+            background: #f8f9fa;
+            position: relative;
+        }
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') repeat-x center;
+            opacity: 0.03;
+            z-index: -1;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .service-category {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .service-category h3 {
+            font-size: 1.8rem;
+            color: #DAA520;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .service-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .service-item:hover {
+            background: #e9ecef;
+        }
+        .service-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            flex-shrink: 0;
+        }
+        .service-item-text {
+            flex: 1;
+        }
+        .service-item-text strong {
+            display: block;
+            color: #DAA520;
+            margin-bottom: 0.25rem;
+        }
+        .service-item-text p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: #fff;
+            position: relative;
+        }
+        .projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat bottom right;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .project-type {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .project-type:hover {
+            transform: translateY(-5px);
+        }
+        .project-type i {
+            font-size: 3rem;
+            color: #DAA520;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .project-type h4 {
+            color: #333;
+            margin: 0;
+        }
+
+        /* Team Grid */
+        .team {
+            background: #f8f9fa;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .team-member {
+            text-align: center;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .team-member::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #fff;
+        }
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            background: #ddd; /* Placeholder */
+        }
+        .team-member h3 {
+            color: #DAA520;
+            margin-bottom: 0.5rem;
+        }
+        .team-member p {
+            color: #666;
+        }
+
+        /* Contact Form */
+        .contact {
+            background: #fff;
+            position: relative;
+        }
+        .contact::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: url('https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center bottom;
+            opacity: 0.05;
+            z-index: -1;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .footer {
+  width: 100%;
+  min-height: 33vh;
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+  background-color: rgba(173, 171, 171, 0.8);
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.75rem;
+  color: #666;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px);
+  z-index: -1;
+}
+
+.footer .contact-info {
+  text-align: left;
+  color: #fff;
+  font-size: 0.9rem;
+  flex: 1;
+  padding-left: 2rem;
+}
+
+.footer .contact-info a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer .contact-info a:hover {
+  color: #4a919e;
+}
+
+.footer .social-icons {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1.5rem;
+  z-index: 1;
+}
+
+.footer .social-icons a {
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+  color: #4a919e;
+  transform: scale(1.1);
+}
+
+.footer .copyright {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  color: #fff;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer .contact-info {
+    text-align: center;
+    padding-left: 0;
+    margin-bottom: 1rem;
+  }
+
+  .footer .social-icons {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    transform: none;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer .social-icons a {
+    font-size: 0.9rem;
+  }
+
+  .footer .copyright {
+    font-size: 0.7rem;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    transform: none;
+    margin-top: 1rem;
+  }
+}
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero blockquote {
+                font-size: 1rem;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .contact-details {
+                text-align: center;
+            }
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+            .service-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            .service-item img {
+                width: 100%;
+                height: 120px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="logo.png" alt="candwan consultancy logo">
+                <span>candwan consultancy</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Welcome to Candwan Consultancy</h1>
+            <blockquote>"Architecture is a visual art, and the buildings speak for themselves" - Julia Morgan</blockquote>
+            <p>Transforming visions into enduring structures with expert architectural and quantity surveying services.</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Company</h2>
+            <p>Candwan Consultancy Company Limited is a registered firm in Architectural and Quantity Surveying in Tanzania, established in 2025 as limited by shares. Since establishment, the practice has gradually grown with a view of becoming one of the most organized and high profile Consulting group in Built and Construction Industry in the country.</p>
+            <div class="mission-vision">
+                <div>
+                    <h3>Our Mission</h3>
+                    <p>Our mission is focused on qualitative management approach formed to all works that come across; we have experienced consulting firms in the relevant field in order to gain the exposure and expertise through joint venture.</p>
+                </div>
+                <div>
+                    <h3>Our Vision</h3>
+                    <p>Our practice has so far been successful in the provision of both Quantity surveying and architectural services over the quality of our existing and architectural spectrum of clients (Private-Individuals and a full companies, Institutional e.t.c) in all these, the clients are already enjoying good professional relationship with us and tendered appreciated the professional service rendered.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Candwan Consultancy Co. Ltd offer full Architectural, Interior Design and Construction Cost Consultancy Services including:</p>
+            <div class="services-grid">
+                <div class="service-category">
+                    <h3>Architectural Services</h3>
+                    <div class="service-item">
+                        <img src="https://images.pexels.com/photos/53610/blueprint-design-architecture-drawing-53610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Site investigation">
+                        <div class="service-item-text">
+                            <strong>Site investigation and analysis</strong>
+                            <p>Comprehensive site assessments to ensure optimal design foundations.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://images.pexels.com/photos/207756/architectural-design-architecture-model-207756.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Concept development">
+                        <div class="service-item-text">
+                            <strong>Concept development and analysis</strong>
+                            <p>Creative ideation and feasibility studies for innovative projects.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Outline proposals">
+                        <div class="service-item-text">
+                            <strong>Outline proposals</strong>
+                            <p>Initial project outlines with preliminary sketches and budgets.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Scheme design">
+                        <div class="service-item-text">
+                            <strong>Scheme design and production drawing</strong>
+                            <p>Detailed schematics and production-ready technical drawings.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://images.pexels.com/photos/909957/pexels-photo-909957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Tender preparation">
+                        <div class="service-item-text">
+                            <strong>Tender preparation and production drawing</strong>
+                            <p>Professional tender documents to secure competitive bids.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Project planning">
+                        <div class="service-item-text">
+                            <strong>Project planning and Management</strong>
+                            <p>End-to-end project coordination for timely delivery.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://images.pexels.com/photos/159644/architecture-building-campus-159644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Site supervision">
+                        <div class="service-item-text">
+                            <strong>Site Supervision</strong>
+                            <p>On-site oversight to maintain quality and standards.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Structural designs">
+                        <div class="service-item-text">
+                            <strong>Structural Designs</strong>
+                            <p>Robust structural engineering for safe constructions.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Planning and landscaping">
+                        <div class="service-item-text">
+                            <strong>Planning and landscaping</strong>
+                            <p>Integrated urban planning and landscape architecture.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Interior designs">
+                        <div class="service-item-text">
+                            <strong>Interior Designs</strong>
+                            <p>Custom interior solutions for functional spaces.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Consulting services">
+                        <div class="service-item-text">
+                            <strong>Consulting Services</strong>
+                            <p>Expert advice for complex architectural challenges.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://images.pexels.com/photos/53610/blueprint-design-architecture-drawing-53610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Supervision services">
+                        <div class="service-item-text">
+                            <strong>Supervision Services</strong>
+                            <p>Continuous monitoring for project excellence.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://images.pexels.com/photos/207756/architectural-design-architecture-model-207756.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Technical project">
+                        <div class="service-item-text">
+                            <strong>Technical Project</strong>
+                            <p>Technical support for seamless execution.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-category">
+                    <div class="service-category">
+                        <h3>Quantity Surveying Services</h3>
+    <div class="service-item">
+        <img src="https://images.pexels.com/photos/4792289/pexels-photo-4792289.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Preliminary cost advice">
+        <div class="service-item-text">
+            <strong>Preliminary Cost Advice</strong>
+            <p>Providing clients with accurate cost insights during early project stages to guide decision-making and budgeting.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <img src="https://images.pexels.com/photos/6476584/pexels-photo-6476584.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Estimates and alternatives">
+        <div class="service-item-text">
+            <strong>Approximate Estimates & Alternatives</strong>
+            <p>Developing cost alternatives and estimates for project feasibility and value optimization.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <img src="https://images.pexels.com/photos/6801641/pexels-photo-6801641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cost planning">
+        <div class="service-item-text">
+            <strong>Cost Planning of Design Procedures</strong>
+            <p>Ensuring design and cost balance through continuous cost monitoring and value engineering.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <img src="https://images.pexels.com/photos/5588455/pexels-photo-5588455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Contractual advice">
+        <div class="service-item-text">
+            <strong>Advice on Contractual Arrangements</strong>
+            <p>Guiding clients on contract selection, risk management, and procurement strategies for successful execution.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <img src="https://images.pexels.com/photos/8353804/pexels-photo-8353804.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Tender preparation">
+        <div class="service-item-text">
+            <strong>Preparation of Tender Documents</strong>
+            <p>Preparing comprehensive tender documentation to ensure accurate and competitive bidding.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <img src="https://images.pexels.com/photos/5668876/pexels-photo-5668876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Tender selection">
+        <div class="service-item-text">
+            <strong>Obtaining and Selecting Tenders</strong>
+            <p>Evaluating tenders professionally to identify the most advantageous offers for clients.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <img src="https://images.pexels.com/photos/8473395/pexels-photo-8473395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Valuation of work">
+        <div class="service-item-text">
+            <strong>Valuation of Work in Progress</strong>
+            <p>Regular assessment of completed work to ensure proper financial flow and progress reporting.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <img src="https://images.pexels.com/photos/8353800/pexels-photo-8353800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cost management">
+        <div class="service-item-text">
+            <strong>Cost Management & Negotiation of Claims</strong>
+            <p>Controlling expenditure and handling claims to ensure cost efficiency throughout the project lifecycle.</p>
+        </div>
+    </div>
+    <div class="service-item">
+        <img src="https://images.pexels.com/photos/6476586/pexels-photo-6476586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Final account settlement">
+        <div class="service-item-text">
+            <strong>Final Account Settlement</strong>
+            <p>Comprehensive reconciliation and closing of all financial matters post-project completion.</p>
+        </div>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Our Projects</h2>
+            <div class="projects-grid">
+                <div class="project-type">
+                    <i class="fas fa-university"></i>
+                    <h4>Government Institutions</h4>
+                </div>
+                <div class="project-type">
+                    <i class="fas fa-building-columns"></i>
+                    <h4>Financial Institutions</h4>
+                </div>
+                <div class="project-type">
+                    <i class="fas fa-gavel"></i>
+                    <h4>Public Institutions</h4>
+                </div>
+                <div class="project-type">
+                    <i class="fas fa-hospital"></i>
+                    <h4>Medical and Health Institutions</h4>
+                </div>
+                <div class="project-type">
+                    <i class="fas fa-store"></i>
+                    <h4>Commercial and Residential Institutions</h4>
+                </div>
+                <div class="project-type">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>Educational Institutions</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team">
+        <div class="container">
+            <h2>Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div style="width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1rem; background: #ddd;"></div> <!-- Placeholder for image -->
+                    <h3>Founder & Principal Architect</h3>
+                    <p>Leading visionary designs since 2025</p>
+                </div>
+                <div class="team-member">
+                    <div style="width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1rem; background: #ddd;"></div>
+                    <h3>Senior Quantity Surveyor</h3>
+                    <p>Expert in cost management and compliance</p>
+                </div>
+                <div class="team-member">
+                    <div style="width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1rem; background: #ddd;"></div>
+                    <h3>Design Consultant</h3>
+                    <p>Specializing in sustainable solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+  <div class="contact-info">
+    <p><a href="mailto:info@candwan.co.tz">Email: info@candwan.co.tz</a></p>
+    <p><a href="tel:+11234567890">Tel: +1-123-456-7890</a></p>
+    <p>Address: PO Box 1234, Zanzibar.</p>
+  </div>
+  <div class="social-icons">
+    <a href="https://wa.me/1234567890" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i><span>+1234567890</span>
+    </a>
+    <a href="https://www.instagram.com/designstudio" aria-label="Instagram">
+      <i class="fab fa-instagram"></i><span>@_Candwan</span>
+    </a>
+    <a href="https://www.facebook.com/designstudio" aria-label="Facebook">
+      <i class="fab fa-facebook-f"></i><span>@Candwan</span>
+    </a>
+    <a href="mailto:contact@designstudio.com" aria-label="Email">
+      <i class="fas fa-envelope"></i><span>info@candwan.co.tz</span>
+    </a>
+  </div>
+  <div class="copyright">© 2025 CANDWAN. All rights reserved.</div>
+</footer>
+
+
+    <script>
+        // Simple mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission (placeholder)
+        document.querySelector('.contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+        });
+    </script>
+</body>
+</html>
